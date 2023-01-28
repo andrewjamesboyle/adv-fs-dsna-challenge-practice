@@ -7,7 +7,6 @@ function uniqueWords(words) {
     
     }
 
-
 console.log(1, uniqueWords(["gin", "zen"]));
 console.log(1, uniqueWords(["gig", "msg"]));
 console.log(2, uniqueWords(["george", "santa"]));
