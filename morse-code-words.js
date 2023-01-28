@@ -1,13 +1,30 @@
-function uniqueWords(words) {
-    const codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
-    let transformedWords = []
+const codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
 
-    for (i = 0; i < words.length; i++) {
-        const transformedWord = (some relationship between words.letter index number and corresponding codes[i]);
-            
-        transformedWords.append(transformedWord)
-        }
+function uniqueWords(words) {
+    
+    const morseWords = words.map(wordToMorse);
+    return uniqueMorseWords(morseWords);
+    
     }
 
-    return transformedWords.length;
-};
+
+console.log(1, uniqueWords(["gin", "zen"]));
+console.log(1, uniqueWords(["gig", "msg"]));
+console.log(2, uniqueWords(["george", "santa"]));
+console.log(2, uniqueWords(["gin", "zen", "gig", "msg"]));
+
+function wordToMorse(word) {
+    const chars = word.split('')
+    const newMorse = chars.map(charToMorse)
+    return newMorse.join('')
+}
+
+function charToMorse(char) {
+    const codeIndex = char.charCodeAt(0) - 97;
+    return codes[codeIndex]
+}
+
+function uniqueMorseWords(morseCodeWords) {
+    const sortedMorse = new Set(morseCodeWords);
+    return sortedMorse.size
+}
